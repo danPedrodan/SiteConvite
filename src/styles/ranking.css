@@ -1,0 +1,152 @@
+.rankingWrap{
+  display:flex;
+  flex-direction:column;
+  gap: 14px;
+}
+
+.addRow{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.input{
+  flex: 1 1 220px;
+  min-width: 220px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.8);
+  background: rgba(255,255,255,.78);
+  box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  outline: none;
+}
+
+.input:focus-visible{
+  box-shadow: var(--ring);
+}
+
+.list{
+  list-style:none;
+  padding: 0;
+  margin: 0;
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+}
+
+.listItem{ margin: 0; }
+
+.dragCard{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  padding: 12px 12px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.74);
+  border: 1px solid rgba(255,255,255,.86);
+  box-shadow: 0 12px 26px rgba(0,0,0,.10);
+  cursor: grab;
+}
+
+.dragCard:active{
+  cursor: grabbing;
+}
+
+.dragCard--dragging{
+  opacity: .7;
+  transform: scale(.99);
+}
+
+.rankPill{
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: white;
+  font-weight: 800;
+  box-shadow: 0 10px 22px rgba(255,59,131,.22);
+}
+
+.label{
+  flex: 1;
+  font-weight: 750;
+}
+
+.removeBtn{
+  border: 0;
+  background: rgba(0,0,0,.06);
+  width: 38px;
+  height: 38px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 900;
+  transition: transform .12s ease, background .12s ease;
+}
+
+.removeBtn:hover{
+  background: rgba(0,0,0,.10);
+}
+
+.removeBtn:focus-visible{
+  outline:none;
+  box-shadow: var(--ring);
+}
+
+.errorBox{
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.68);
+  border: 1px solid rgba(255,255,255,.82);
+  color: #6a1b3d;
+  font-weight: 700;
+}
+
+.actionsRow{
+  display:flex;
+  gap: 12px;
+  align-items:center;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.small{
+  margin: 0;
+  font-size: 14px;
+}
+
+.successBox{
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(255,255,255,.86);
+  box-shadow: 0 18px 38px rgba(0,0,0,.12);
+}
+
+.successTitle{
+  margin: 0 0 8px;
+  font-size: 24px;
+}
+/* Handle do drag (melhor no mobile) */
+.dragHandle{
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 0;
+  background: rgba(0,0,0,.06);
+  cursor: grab;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  user-select: none;
+  touch-action: none; /* importantíssimo no mobile */
+}
+
+.dragHandle:active{
+  cursor: grabbing;
+}
+

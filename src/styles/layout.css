@@ -1,0 +1,29 @@
+.topbar{
+  display:flex;
+  justify-content:flex-start;
+  margin-bottom: 14px;
+}
+
+.page__header{
+  margin-bottom: 14px;
+}
+
+.page__title{
+  margin: 0;
+  font-size: clamp(26px, 4vw, 38px);
+  letter-spacing: -0.6px;
+}
+
+.page__subtitle{
+  margin: 8px 0 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.footer{
+  margin-top: 12px;
+  text-align:center;
+  color: rgba(255,255,255,.9);
+  text-shadow: 0 10px 25px rgba(0,0,0,.18);
+  font-weight: 600;
+}
