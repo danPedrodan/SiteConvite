@@ -36,8 +36,8 @@ function RedString({ active }) {
               : { pathLength: 0, opacity: 0 }
           }
           transition={{
-            pathLength: { duration: 3.2, ease: 'easeOut' },
-            opacity: { duration: 15.99, repeat: active ? Infinity : 0, ease: 'easeInOut' },
+            pathLength: { duration: 7.2, ease: 'easeOut' },
+            opacity: { duration: 20, repeat: active ? Infinity : 0, ease: 'easeInOut' },
           }}
         />
 
