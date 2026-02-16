@@ -86,7 +86,7 @@ function SplitComet({ active }) {
   const [cycle, setCycle] = useState(0)
   const [split, setSplit] = useState(false)
 
-  const DURATION = 16
+  const DURATION = 12
   const SPLIT_AT = DURATION * 0.275
   const OVERLAP = DURATION * 0.30
 
