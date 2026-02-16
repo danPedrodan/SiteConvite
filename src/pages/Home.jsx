@@ -22,7 +22,7 @@ function RedString({ active }) {
           className="redStringGlow"
           initial={{ pathLength: 0, opacity: 0 }}
           animate={active ? { pathLength: 1, opacity: 0.26 } : { pathLength: 0, opacity: 0 }}
-          transition={{ duration: 1.1, ease: 'easeOut' }}
+          transition={{ duration: 2.5, ease: 'easeOut' }}
         />
 
         {/* fio principal */}
@@ -36,8 +36,8 @@ function RedString({ active }) {
               : { pathLength: 0, opacity: 0 }
           }
           transition={{
-            pathLength: { duration: 1.6, ease: 'easeOut' },
-            opacity: { duration: 9, repeat: active ? Infinity : 0, ease: 'easeOut' },
+            pathLength: { duration: 3.2, ease: 'easeOut' },
+            opacity: { duration: 16, repeat: active ? Infinity : 0, ease: 'easeInOut' },
           }}
         />
 
@@ -51,7 +51,7 @@ function RedString({ active }) {
               ? { strokeDashoffset: -240, opacity: [0.12, 0.28, 0.12] }
               : { strokeDashoffset: 0, opacity: 0 }
           }
-          transition={{ duration: 9, repeat: active ? Infinity : 0, ease: 'linear' }}
+          transition={{ duration: 18, repeat: active ? Infinity : 0, ease: 'linear' }}
         />
       </svg>
     </motion.div>
