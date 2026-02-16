@@ -86,9 +86,10 @@ function SplitComet({ active }) {
   const [cycle, setCycle] = useState(0)
   const [split, setSplit] = useState(false)
 
-  const DURATION = 10
-  const SPLIT_AT = 2.75
-  const OVERLAP = 3 // reinicia antes de sair totalmente
+  const DURATION = 16
+  const SPLIT_AT = DURATION * 0.275
+  const OVERLAP = DURATION * 0.30
+
 
   useEffect(() => {
     if (!active) {
