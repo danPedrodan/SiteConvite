@@ -149,7 +149,7 @@ export default function Home({ onStartMusic, isMusicOn }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.2, ease: 'easeOut' }}
             >
-              Por isso,tenho um convite especial pra você.
+              Por isso,gostaria de te fazer um convite.
             </motion.p>
 
             <div className="heroActions">
