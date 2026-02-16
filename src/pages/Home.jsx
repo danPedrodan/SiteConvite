@@ -126,7 +126,7 @@ export default function Home({ onStartMusic, isMusicOn }) {
           >
             <h1 className="heroTitle">Maria Eduarda</h1>
             <p className="helper heroText">
-              Me encanta muito que, além da sua beleza externa, que já é extasiante, eu posso enxergar em você a beleza do nosso Criador.
+              Muito me encanta que, além da sua beleza externa, que já é extasiante, eu posso enxergar em você a beleza do nosso Criador.
             </p>
           </motion.div>
 
