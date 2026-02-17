@@ -82,6 +82,7 @@ export default function SkyBackdrop({ active = true }) {
     </div>
   )
 }
+
 function SplitComet({ active }) {
   const [cycle, setCycle] = useState(0)
   const [split, setSplit] = useState(false)
@@ -89,7 +90,6 @@ function SplitComet({ active }) {
   const DURATION = 12
   const SPLIT_AT = DURATION * 0.275
   const OVERLAP = DURATION * 0.30
-
 
   useEffect(() => {
     if (!active) {
@@ -195,10 +195,8 @@ function SplitComet({ active }) {
             }}
           >
             {[
-              { color: '#9befff', offset: -14 }, // azul claro
-              { color: '#6bff9c', offset: -4 },  // verde
-              { color: '#b88cff', offset: 6 },   // roxo
-              { color: '#1f4dff', offset: 16 },  // azul escuro
+              { color: '#3aa0ff', offset: -10 }, // 🔵 azul
+              { color: '#ff3b3b', offset: 10 },  // 🔴 vermelho
             ].map((c, i) => (
               <motion.div
                 key={i}
