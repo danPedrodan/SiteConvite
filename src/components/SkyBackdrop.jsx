@@ -77,7 +77,7 @@ export default function SkyBackdrop({ active = true }) {
         />
       ))}
 
-      {/* ☄️ cometa que divide em 2 (azul/vermelho) */}
+      {/* ☄️ cometa mais bonito (sem mexer na movimentação) */}
       <SplitComet active={active} />
     </div>
   )
@@ -89,7 +89,7 @@ function SplitComet({ active }) {
 
   const DURATION = 12
   const SPLIT_AT = DURATION * 0.275
-  const OVERLAP = DURATION * 0.30
+  const OVERLAP = DURATION * 0.3
 
   useEffect(() => {
     if (!active) {
@@ -136,6 +136,7 @@ function SplitComet({ active }) {
         ease: 'easeOut',
       }}
     >
+      {/* SINGLE (antes do split) */}
       <AnimatePresence>
         {!split && (
           <motion.div
@@ -149,34 +150,90 @@ function SplitComet({ active }) {
               left: '50%',
               top: '22%',
               transform: 'translateX(-50%)',
+              width: '560px',
+              height: '60px',
+              filter: 'drop-shadow(0 0 22px rgba(255,255,255,0.25))',
+              pointerEvents: 'none',
             }}
           >
+            {/* cauda larga (glow) */}
             <div
               style={{
-                width: '560px',
-                height: '3px',
-                background:
-                  'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(200,220,255,0.22) 35%, rgba(255,255,255,0.95) 55%, rgba(200,220,255,0.18) 75%, rgba(255,255,255,0) 100%)',
+                position: 'absolute',
+                left: 0,
+                right: 0,
+                top: '28px',
+                height: '10px',
                 borderRadius: 999,
+                background:
+                  'linear-gradient(90deg,' +
+                  'rgba(255,255,255,0) 0%,' +
+                  'rgba(180,210,255,0.10) 25%,' +
+                  'rgba(255,255,255,0.25) 55%,' +
+                  'rgba(180,210,255,0.10) 80%,' +
+                  'rgba(255,255,255,0) 100%)',
+                filter: 'blur(6px)',
+                opacity: 0.9,
               }}
             />
+
+            {/* núcleo fino */}
+            <div
+              style={{
+                position: 'absolute',
+                left: 0,
+                right: 0,
+                top: '31px',
+                height: '2px',
+                borderRadius: 999,
+                background:
+                  'linear-gradient(90deg,' +
+                  'rgba(255,255,255,0) 0%,' +
+                  'rgba(210,230,255,0.25) 30%,' +
+                  'rgba(255,255,255,0.95) 55%,' +
+                  'rgba(210,230,255,0.18) 78%,' +
+                  'rgba(255,255,255,0) 100%)',
+              }}
+            />
+
+            {/* cabeça */}
             <div
               style={{
                 position: 'absolute',
                 left: '50%',
-                top: '0px',
-                width: '10px',
-                height: '10px',
-                transform: 'translate(-50%, -3.5px)',
-                background: 'white',
-                boxShadow: '0 0 18px rgba(255,255,255,0.8)',
+                top: '31px',
+                width: '12px',
+                height: '12px',
+                transform: 'translate(-50%, -50%)',
                 borderRadius: 999,
+                background:
+                  'radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(200,220,255,0.95) 35%, rgba(255,255,255,0.0) 75%)',
+                boxShadow:
+                  '0 0 14px rgba(255,255,255,0.85), 0 0 36px rgba(160,200,255,0.35)',
+              }}
+            />
+
+            {/* bloom suave ao redor */}
+            <div
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: '31px',
+                width: '140px',
+                height: '140px',
+                transform: 'translate(-50%, -50%)',
+                borderRadius: 999,
+                background:
+                  'radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(150,200,255,0.08) 35%, rgba(0,0,0,0) 72%)',
+                filter: 'blur(2px)',
+                opacity: 0.9,
               }}
             />
           </motion.div>
         )}
       </AnimatePresence>
 
+      {/* SPLIT (azul/vermelho) */}
       <AnimatePresence>
         {split && (
           <motion.div
@@ -191,12 +248,13 @@ function SplitComet({ active }) {
               top: '22%',
               transform: 'translateX(-50%)',
               width: '560px',
-              height: '40px',
+              height: '70px',
+              pointerEvents: 'none',
             }}
           >
             {[
-              { color: '#3aa0ff', offset: -10 }, // 🔵 azul
-              { color: '#ff3b3b', offset: 10 },  // 🔴 vermelho
+              { color: '#3aa0ff', offset: -12 }, // 🔵 azul
+              { color: '#ff3b3b', offset: 12 }, // 🔴 vermelho
             ].map((c, i) => (
               <motion.div
                 key={i}
@@ -207,38 +265,86 @@ function SplitComet({ active }) {
                   position: 'absolute',
                   left: 0,
                   right: 0,
-                  top: '12px',
+                  top: '18px',
+                  filter: `drop-shadow(0 0 18px ${c.color}55)`,
                 }}
               >
+                {/* cauda larga */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    left: 0,
+                    right: 0,
+                    top: '10px',
+                    height: '10px',
+                    borderRadius: 999,
+                    background: `linear-gradient(90deg,
+                      rgba(0,0,0,0) 0%,
+                      ${c.color}22 25%,
+                      ${c.color}44 55%,
+                      ${c.color}22 80%,
+                      rgba(0,0,0,0) 100%)`,
+                    filter: 'blur(6px)',
+                    opacity: 0.95,
+                  }}
+                />
+
+                {/* núcleo fino */}
                 <div
                   style={{
                     width: '560px',
-                    height: '3px',
+                    height: '2px',
+                    marginTop: '14px',
                     background: `linear-gradient(90deg,
                       rgba(0,0,0,0) 0%,
-                      ${c.color}40 30%,
+                      ${c.color}55 28%,
                       ${c.color} 55%,
-                      ${c.color}40 75%,
+                      ${c.color}55 80%,
                       rgba(0,0,0,0) 100%)`,
                     borderRadius: 999,
                   }}
                 />
+
+                {/* cabeça */}
                 <div
                   style={{
                     position: 'absolute',
                     left: '50%',
-                    top: '0px',
-                    width: '10px',
-                    height: '10px',
-                    transform: 'translate(-50%, -3.5px)',
-                    background: c.color,
-                    boxShadow: `0 0 20px ${c.color}, 0 0 40px ${c.color}88`,
+                    top: '15px',
+                    width: '12px',
+                    height: '12px',
+                    transform: 'translate(-50%, -50%)',
+                    background: `radial-gradient(circle,
+                      ${c.color} 0%,
+                      ${c.color}cc 35%,
+                      rgba(0,0,0,0) 75%)`,
+                    boxShadow: `0 0 14px ${c.color}, 0 0 38px ${c.color}66`,
                     borderRadius: 999,
+                  }}
+                />
+
+                {/* bloom */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    left: '50%',
+                    top: '15px',
+                    width: '150px',
+                    height: '150px',
+                    transform: 'translate(-50%, -50%)',
+                    borderRadius: 999,
+                    background: `radial-gradient(circle,
+                      ${c.color}22 0%,
+                      ${c.color}14 35%,
+                      rgba(0,0,0,0) 72%)`,
+                    filter: 'blur(2px)',
+                    opacity: 0.9,
                   }}
                 />
               </motion.div>
             ))}
 
+            {/* flash no split (mantive sua ideia, só dei um "bloom" mais bonito) */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: [0, 0.9, 0], scale: [0.9, 1.2, 1] }}
@@ -247,12 +353,13 @@ function SplitComet({ active }) {
                 position: 'absolute',
                 left: '50%',
                 top: '50%',
-                width: '160px',
-                height: '160px',
+                width: '170px',
+                height: '170px',
                 transform: 'translate(-50%, -50%)',
                 borderRadius: 999,
                 background:
-                  'radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(150,200,255,0.2) 40%, rgba(0,0,0,0) 70%)',
+                  'radial-gradient(circle, rgba(255,255,255,0.85) 0%, rgba(150,200,255,0.18) 42%, rgba(0,0,0,0) 72%)',
+                filter: 'blur(1px)',
                 pointerEvents: 'none',
               }}
             />
