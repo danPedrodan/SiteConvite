@@ -209,7 +209,10 @@ function SplitComet({ active }) {
                 background:
                   'radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(200,220,255,0.95) 35%, rgba(255,255,255,0.0) 75%)',
                 boxShadow:
-                  '0 0 14px rgba(255,255,255,0.85), 0 0 36px rgba(160,200,255,0.35)',
+                    '0 0 20px rgba(255,255,255,1), ' +
+                    '0 0 40px rgba(255,255,255,0.9), ' +
+                    '0 0 70px rgba(160,200,255,0.8), ' +
+                    '0 0 120px rgba(120,180,255,0.6)',
               }}
             />
 
@@ -223,9 +226,9 @@ function SplitComet({ active }) {
                 height: '140px',
                 transform: 'translate(-50%, -50%)',
                 borderRadius: 999,
-                background:
-                  'radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(150,200,255,0.08) 35%, rgba(0,0,0,0) 72%)',
-                filter: 'blur(2px)',
+background:
+  'radial-gradient(circle, rgba(255,255,255,0.45) 0%, rgba(150,200,255,0.25) 35%, rgba(0,0,0,0) 70%)',
+filter: 'blur(4px)',
                 opacity: 0.9,
               }}
             />
